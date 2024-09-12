@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Aid Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Healthcare Aid Application</h1>
+        <nav>
+            <ul>
+                <li><a href="#disease-prediction">Disease Prediction</a></li>
+                <li><a href="#insurance-estimation">Insurance Estimation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Disease Prediction Section -->
+        <section id="disease-prediction">
+            <h2>Disease Prediction</h2>
+            <form id="disease-form">
+                <label for="symptom1">Symptom 1:</label>
+                <input type="text" id="symptom1" name="symptom1" required>
+                
+                <label for="symptom2">Symptom 2:</label>
+                <input type="text" id="symptom2" name="symptom2" required>
+
+                <label for="symptom3">Symptom 3:</label>
+                <input type="text" id="symptom3" name="symptom3" required>
+                
+                <button type="submit">Predict Disease</button>
+            </form>
+            <div id="disease-result">
+                <!-- predicted disease will be displayed here-->
+            </div>
+        </section>
+
+        
+        <section id="insurance-estimation">
+            <h2>Insurance Premium Estimation</h2>
+            <form id="insurance-form">
+                <label for="bmi">BMI:</label>
+                <input type="number" id="bmi" name="bmi" required>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="smoker">Smoker:</label>
+                <select id="smoker" name="smoker" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <label for="region">Region:</label>
+                <select id="region" name="region" required>
+                    <option value="north">North</option>
+                    <option value="south">South</option>
+                    <option value="east">East</option>
+                    <option value="west">West</option>
+                </select>
+
+                <button type="submit">Estimate Premium</button>
+            </form>
+            <div id="premium-result">
+                <!-- estimated insurance premium will be displayed here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy;Healthcare Aid Application</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
