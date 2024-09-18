@@ -3,77 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare Aid Application</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Healthcare Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #beeafc;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+        }
+
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .button-container {
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #4279e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .feature-summary {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .feature-summary p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .benefits {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .benefits h3 {
+            color: #000000;
+        }
+
+        .benefits ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .benefits li {
+            padding: 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            color: #777;
+        }
+
+        .footer a {
+            color: #4b9a4b;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Healthcare Aid Application</h1>
+        <h1>Welcome to Your Healthcare Assistant</h1>
+        <p>Predict diseases from symptoms or calculate insurance premiums easily.</p>
         <nav>
             <ul>
-                <li><a href="#disease-prediction">Disease Prediction</a></li>
-                <li><a href="#insurance-estimation">Insurance Estimation</a></li>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <!-- Disease Prediction Section -->
-        <section id="disease-prediction">
-            <h2>Disease Prediction</h2>
-            <form id="disease-form">
-                <label for="symptom1">Symptom 1:</label>
-                <input type="text" id="symptom1" name="symptom1" required>
-                
-                <label for="symptom2">Symptom 2:</label>
-                <input type="text" id="symptom2" name="symptom2" required>
+    <div class="container">
+        <h2>Get Started</h2>
 
-                <label for="symptom3">Symptom 3:</label>
-                <input type="text" id="symptom3" name="symptom3" required>
-                
-                <button type="submit">Predict Disease</button>
-            </form>
-            <div id="disease-result">
-                <!-- predicted disease will be displayed here-->
-            </div>
-        </section>
+        <div class="button-container">
+            <a href="dp.html" class="button">Predict Disease</a>
+            <a href="insurance.html" class="button">Estimate Insurance Premium</a>
+        </div>
 
-        
-        <section id="insurance-estimation">
-            <h2>Insurance Premium Estimation</h2>
-            <form id="insurance-form">
-                <label for="bmi">BMI:</label>
-                <input type="number" id="bmi" name="bmi" required>
+        <div class="feature-summary">
+            <h2>Features</h2>
+            <p><strong>Disease Prediction:</strong> Input your symptoms and get a list of potential diseases. Understand what could be affecting you and seek the right medical help.</p>
+            <p><strong>Insurance Premium Estimation:</strong> Calculate your insurance premiums based on your BMI, smoker status, and age. Get accurate and personalized insurance costs.</p>
+        </div>
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
+        <div class="benefits">
+            <h3>Why Use This App?</h3>
+            <ul>
+                <li>Free to Use</li>
+                <li>Accurate and Fast Predictions</li>
+                <li>Simple and Easy Interface</li>
+                <li>Secure Data Handling</li>
+            </ul>
+        </div>
+    </div>
 
-                <label for="smoker">Smoker:</label>
-                <select id="smoker" name="smoker" required>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-
-                <label for="region">Region:</label>
-                <select id="region" name="region" required>
-                    <option value="north">North</option>
-                    <option value="south">South</option>
-                    <option value="east">East</option>
-                    <option value="west">West</option>
-                </select>
-
-                <button type="submit">Estimate Premium</button>
-            </form>
-            <div id="premium-result">
-                <!-- estimated insurance premium will be displayed here -->
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy;Healthcare Aid Application</p>
-    </footer>
-
+    <div class="footer">
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>Contact us: <a href="mailto:support@healthcareaidapp.com">support@healthcareapp.com</a></p>
+    </div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>
