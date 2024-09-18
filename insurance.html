@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Premium Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input, select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Estimate Your Insurance Premium</h2>
+        <form id="premiumForm">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="18" max="100" required>
+
+            <label for="bmi">BMI</label>
+            <input type="number" id="bmi" name="bmi" min="10" max="50" step="0.01" required>
+            <h4>To claculate your BMI <a href="bmi.html">Click here</a> </h4>
+
+            <label for="smoker">Smoker Status</label>
+            <select id="smoker" name="smoker" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="region">Region</label>
+            <select id="region" name="region" required>
+                <option value="">Select Region</option>
+                <option value="northwest">Northwest</option>
+                <option value="northeast">Northeast</option>
+                <option value="southeast">Southeast</option>
+                <option value="southwest">Southwest</option>
+                <option value="midwest">Midwest</option>
+            </select>
+
+            <button type="submit">Calculate Premium</button>
+        </form>
+
+        <div class="result" id="premiumResult"></div>
+    </div>
+
+    <script>
+        document.getElementById('premiumForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect the form data
+            const age = parseInt(document.getElementById('age').value, 10);
+            const bmi = parseFloat(document.getElementById('bmi').value).toFixed(2);  // Format to 2 decimal places
+            const smoker = document.getElementById('smoker').value;
+            const region = document.getElementById('region').value;
+
+            // Check if inputs are valid
+            if (isNaN(age) || isNaN(bmi) || age < 18 || age > 100 || bmi < 10 || bmi > 50) {
+                document.getElementById('premiumResult').innerText = "Please enter valid values.";
+                return;
+            }
+
+            // Mock calculation (You would normally send this data to the backend for processing)
+            let premium = 100;  // Base premium
+
+            // Adjust premium based on inputs
+            if (bmi > 25) {
+                premium += 50;  // Add for higher BMI
+            }
+
+            if (smoker === 'yes') {
+                premium += 100;  // Add for smokers
+            }
+
+            if (age > 50) {
+                premium += 30;  // Increase premium for older individuals
+            }
+
+            document.getElementById('premiumResult').innerText = "Estimated Premium: $" + premium + "/month";
+        });
+    </script>
+
+</body>
+</html>

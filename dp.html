@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #disease-prediction {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+            }
+
+            #disease-prediction h2 {
+                text-align: center;
+            }
+
+            #disease-form {
+                width: 100%;
+            }
+
+            .form-group {
+                width: 100%;
+                overflow: auto;
+                margin-bottom: 15px;
+            }
+
+            label {
+                float: left;
+                width: 30%;
+                padding-right: 10px;
+                text-align: right;
+            }
+
+            input {
+                float: left;
+                width: 60%;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            button {
+                float: left;
+                margin-left: 30%;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+            #disease-result {
+                clear: both;
+                margin-top: 20px;
+                text-align: center;
+                font-size: 18px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="disease-prediction">
+            <h2>Disease Prediction</h2>
+            <form id="disease-form">
+                <div class="form-group">
+                    <label for="symptom1">Symptom 1:</label>
+                    <input type="text" id="symptom1" name="symptom1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptom2">Symptom 2:</label>
+                    <input type="text" id="symptom2" name="symptom2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="symptom3">Symptom 3:</label>
+                    <input type="text" id="symptom3" name="symptom3" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Predict Disease</button>
+                </div>
+            </form>
+            <div id="disease-result">
+                <!-- predicted disease will be displayed here-->
+            </div>
+        </section>
+
+        <script src="scripts.js"></script>
+    </body>
+</html>

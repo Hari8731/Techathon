@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input, select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+            color: #333;
+        }
+
+        .bmi-category {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <form id="bmiForm">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" min="1" max="120" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="height">Height (in cm)</label>
+            <input type="number" id="height" name="height" min="50" max="250" required>
+
+            <label for="weight">Weight (in kg)</label>
+            <input type="number" id="weight" name="weight" min="10" max="300" step="0.1" required>
+
+            <button type="submit">Calculate BMI</button>
+        </form>
+
+        <div class="result" id="bmiResult"></div>
+        <div class="bmi-category" id="bmiCategory"></div>
+    </div>
+
+    <script>
+        document.getElementById('bmiForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Collect input values
+            const height = document.getElementById('height').value;
+            const weight = document.getElementById('weight').value;
+
+            // Calculate BMI: BMI = weight (kg) / [height (m)]^2
+            const heightInMeters = height / 100;
+            const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(2);
+
+            // Display BMI result
+            document.getElementById('bmiResult').innerText = "Your BMI is: " + bmi;
+
+            // Determine BMI category
+            let category = "";
+            if (bmi < 18.5) {
+                category = "Underweight";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = "Normal weight";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                category = "Overweight";
+            } else {
+                category = "Obesity";
+            }
+
+            // Display BMI category
+            document.getElementById('bmiCategory').innerText = "BMI Category: " + category;
+        });
+    </script>
+
+</body>
+</html>
